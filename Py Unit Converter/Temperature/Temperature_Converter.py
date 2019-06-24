@@ -1,12 +1,12 @@
 
 # Convert any to Celcius
-def ConvertToCelsiusFromFahrenheint(self, value):
+def ConvertToCelsiusFromFahrenheint(value):
     try:
-        return (value − 32) × 5/9
+        return (value - 32) * (5/9)
     except Exception as e:
         return "Error Converting: " + e
 
-def ConvertToCelsiusFromKelvin(self, value):
+def ConvertToCelsiusFromKelvin(value):
     try:
         return value - 273.15
     except Exception as e:
@@ -14,27 +14,27 @@ def ConvertToCelsiusFromKelvin(self, value):
 
 
 # Convert any to Fahrenheint
-def ConvertToFahrenheintFromCelsius(self, value):
+def ConvertToFahrenheintFromCelsius(value):
     try:
-        return (value × 9/5) + 32
+        return (value * 9/5) + 32
     except Exception as e:
         return "Error q Converting: " + e
 
-def ConvertToFahrenheintFromKelvin(self, value):
+def ConvertToFahrenheintFromKelvin(value):
     try:
-        return ((value − 273.15) × 9/5) + 32
+        return ((value - 273.15) * 9/5) + 32
     except Exception as e:
         return "Error Converting: " + e
 
 # Convert any to Kelvin
-def ConvertToKelvinFromCelsius(self, value):
+def ConvertToKelvinFromCelsius(value):
     try:
         return value + 273.15
     except Exception as e:
         return "Error q Converting: " + e
 
-def ConvertToKelvinFromFahrenheint(self, value):
+def ConvertToKelvinFromFahrenheint(value):
     try:
-        return ((value − 32) × 5/9) + 273.15
+        return ((value - 32) * 5/9) + 273.15
     except Exception as e:
         return "Error Converting: " + e        

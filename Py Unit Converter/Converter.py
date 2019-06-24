@@ -2,6 +2,9 @@ from Distance import Distance_Converter
 from Speed import Speed_Converter
 from Volume import Volume_Converter
 from Temperature import Temperature_Converter
+from Pressure import Pressure_Converter
+from Consuption import Consuption_Converter
+from Coordinates import Coordinates_Converter
 # Distance Units
 KILOMETER = "km"
 MILE = "mi"
@@ -45,7 +48,7 @@ DEGREES_MINUTES = "dmm"
 DECIMAL_DEGREES = "dd"
 
 
-def Convert_Speed(self, value, unitIn, unitOut):
+def Convert_Speed(value, unitIn, unitOut):
     try:
         if unitIn == unitOut:
             return value
@@ -78,13 +81,26 @@ def Convert_Speed(self, value, unitIn, unitOut):
     except Exception as e:
         return "Error : " + e
 
-def Convert_Coordinates(self, value, unitIn, unitOut):
+def Convert_Coordinates(value, unitIn, unitOut):
     try:
-        pass
+        if unitIn == unitOut:
+            return value
+        elif unitIn == DECIMAL_DEGREES and unitOut == DEGREES_MINUTES_SECONDS:
+            return Coordinates_Converter.ConvertToDMSFromDD(value)
+        elif unitIn == DEGREES_MINUTES and unitOut == DEGREES_MINUTES_SECONDS:
+            return Coordinates_Converter.ConvertToDMSFromDMM(value)
+        elif unitIn == DEGREES_MINUTES_SECONDS and unitOut == DEGREES_MINUTES:
+            return Coordinates_Converter.ConvertToDDFromDMS(value)
+        elif unitIn == DECIMAL_DEGREES and unitOut == DEGREES_MINUTES:
+            return Coordinates_Converter.ConvertToDMMFromDD(value)
+        elif unitIn == DEGREES_MINUTES_SECONDS and unitOut == DECIMAL_DEGREES:
+            return Coordinates_Converter.ConvertToDDFromDMS(value)
+        elif unitIn == DEGREES_MINUTES and unitOut == DECIMAL_DEGREES:
+            return Coordinates_Converter.ConvertToDDFromDMM(value)
     except Exception as e:
-        pass
+        return "Error : " + e
 
-def Convert_Volume(self, value, unitIn, unitOut):
+def Convert_Volume(value, unitIn, unitOut):
     try:
         if unitIn == unitOut:
             return value
@@ -95,13 +111,38 @@ def Convert_Volume(self, value, unitIn, unitOut):
     except Exception as e:
         return "Error: " + e
 
-def Convert_Pressure(self, value, unitIn, unitOut):
+def Convert_Pressure(value, unitIn, unitOut):
     try:
-        pass
+        if unitIn == unitOut:
+            return value
+        elif unitIn == POUNDS_PER_SQUARE_INCH and unitOut == KILO_PASCAL:
+            return Pressure_Converter.ConvertToKPAFromPSI(value)
+        elif unitIn == MILIMETER_MERCURY and unitOut == KILO_PASCAL:
+            return Pressure_Converter.ConvertToKPAFromMMHG(value)
+        elif unitIn == BAR and unitOut == KILO_PASCAL:
+            return Pressure_Converter.ConvertToKPAFromBAR(value)
+        elif unitIn == MILIMETER_MERCURY and unitOut == POUNDS_PER_SQUARE_INCH:
+            return Pressure_Converter.ConvertToPSIFromMMHG(value)
+        elif unitIn == KILO_PASCAL and unitOut == POUNDS_PER_SQUARE_INCH:
+            return Pressure_Converter.ConvertToPSIFromKPA(value)
+        elif unitIn == BAR and unitOut == POUNDS_PER_SQUARE_INCH:
+            return Pressure_Converter.ConvertToPSIFromBAR(value)
+        elif unitIn == POUNDS_PER_SQUARE_INCH and unitOut == MILIMETER_MERCURY:
+            return Pressure_Converter.ConvertToMMHGFromPSI(value)
+        elif unitIn == KILO_PASCAL and unitOut == MILIMETER_MERCURY:
+            return Pressure_Converter.ConvertToMMHGFromKPA(value)
+        elif unitIn == BAR and unitOut == MILIMETER_MERCURY:
+            return Pressure_Converter.ConvertToMMHGFromBAR(value)
+        elif unitIn == POUNDS_PER_SQUARE_INCH and unitOut == BAR:
+            return Pressure_Converter.ConvertToBARFromPSI(value)
+        elif unitIn == MILIMETER_MERCURY and unitOut == BAR:
+            return Pressure_Converter.ConvertToBARFromMMHG(value)
+        elif unitIn == KILO_PASCAL and unitOut == BAR:
+            return Pressure_Converter.ConvertToBARFromKPA(value)
     except Exception as e:
-        pass
+        return "Error: " + e
 
-def Convert_Distance(self, value, unitIn, unitOut):
+def Convert_Distance(value, unitIn, unitOut):
     try:
         if unitIn == unitOut:
             return value
@@ -126,13 +167,44 @@ def Convert_Distance(self, value, unitIn, unitOut):
     except Exception as e:
         return "Error: " + e
 
-def Convert_Consumption(self, value, unitIn, unitOut):
+def Convert_Consumption(value, unitIn, unitOut):
     try:
-        pass
+        if unitIn == unitOut:
+            return value
+        elif unitIn == MILE_PER_GALLON and unitOut == KILOMETER_PER_GALLON:
+            return Consuption_Converter.ConvertToKPGFromMIPG(value)
+        elif unitIn == METER_PER_GALLON and unitOut == KILOMETER_PER_GALLON:
+            return Consuption_Converter.ConvertToKPGFromMPG(value)
+        elif unitIn == KILOMETER_PER_LITER and unitOut == KILOMETER_PER_GALLON:
+            return Consuption_Converter.ConvertToKPGFromKPL(value)
+        elif unitIn == MILE_PER_LITER and unitOut == KILOMETER_PER_GALLON:
+            return Consuption_Converter.ConvertToKPGFromMIPL(value)
+        elif unitIn == METER_PER_LITER and unitOut == KILOMETER_PER_GALLON:
+            return Consuption_Converter.ConvertToKPGFromMPL(value)
+        elif unitIn == KILOMETER_PER_GALLON and unitOut == MILE_PER_GALLON:
+            return Consuption_Converter.ConvertToMIPGFromKPG(value)
+        elif unitIn == METER_PER_GALLON and unitOut == MILE_PER_GALLON:
+            return Consuption_Converter.ConvertToMIPGFromMPG(value)
+        elif unitIn == KILOMETER_PER_LITER and unitOut == MILE_PER_GALLON:
+            return Consuption_Converter.ConvertToMIPGFromKPL(value)
+        elif unitIn == MILE_PER_LITER and unitOut == MILE_PER_GALLON:
+            return Consuption_Converter.ConvertToMIPGFromMIPL(value)
+        elif unitIn == METER_PER_LITER and unitOut == MILE_PER_GALLON:
+            return Consuption_Converter.ConvertToMIPGFromMPL(value)
+        elif unitIn == KILOMETER_PER_GALLON and unitOut == METER_PER_LITER:
+            return Consuption_Converter.ConvertToMPLFromKPG(value)
+        elif unitIn == MILE_PER_GALLON and unitOut == METER_PER_LITER:
+            return Consuption_Converter.ConvertToMPLFromMIPG(value)
+        elif unitIn == METER_PER_GALLON and unitOut == METER_PER_LITER:
+            return Consuption_Converter.ConvertToMPLFromMPG(value)
+        elif unitIn == KILOMETER_PER_LITER and unitOut == METER_PER_LITER:
+            return Consuption_Converter.ConvertToMPLFromKPL(value)
+        elif unitIn == MILE_PER_LITER and unitOut == METER_PER_LITER:
+            return Consuption_Converter.ConvertToMPLFromMIPL(value)
     except Exception as e:
-        pass
+        return "Error: " + e
 
-def Convert_Temperature(self, value, unitIn, unitOut):
+def Convert_Temperature(value, unitIn, unitOut):
     try:
         if unitIn == unitOut:
             return value

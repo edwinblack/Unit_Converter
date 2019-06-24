@@ -1,38 +1,38 @@
 
 
 # Convert any to Meters
-def ConvertToMetersFromKilometers(self, value):
+def ConvertToMetersFromKilometers(value):
     try:
         return (value*1000)
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMetersFromMiles(self, value):
+def ConvertToMetersFromMiles(value):
     try:
         return (value*1609.344)
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMetersFromMillimeters(self, value):
+def ConvertToMetersFromMillimeters(value):
     try:
         return (value/1000)
     except Exception as e:
         return ("Error converting: " + e)
 
 # Convert any to Kilometers
-def ConvertToKilometersFromMeters(self, value):
+def ConvertToKilometersFromMeters(value):
     try:
         return (value/1000)
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToKilometersFromMiles(self, value):
+def ConvertToKilometersFromMiles(value):
     try:
         return (value*1.609)
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToKilometersFromMillimeters(self, value):
+def ConvertToKilometersFromMillimeters(value):
     try:
         return (value*100000)
         
@@ -40,19 +40,19 @@ def ConvertToKilometersFromMillimeters(self, value):
         return ("Error converting: " + e)
 
 # Convert any to Miles
-def ConvertToMilesFromMeters(self, value):
+def ConvertToMilesFromMeters(value):
     try:
         return (value/1.609)
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMilessFromKilometers(self, value):
+def ConvertToMilessFromKilometers(value):
     try:
         return (value/1.609)
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMilesFromMillimeters(self, value):
+def ConvertToMilesFromMillimeters(value):
     try:
         return (value*1609000)
     except Exception as e:
