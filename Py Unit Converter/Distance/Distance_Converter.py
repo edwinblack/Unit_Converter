@@ -7,19 +7,17 @@ def ConvertToMetersFromKilometers(self, value):
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMetersFromMiles(self, Value):
+def ConvertToMetersFromMiles(self, value):
     try:
         return (value*1609.344)
-    except expression as identifier:
+    except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMetersFromMillimeters(self, parameter_list):
+def ConvertToMetersFromMillimeters(self, value):
     try:
         return (value/1000)
-    except expression as identifier:
+    except Exception as e:
         return ("Error converting: " + e)
-
-
 
 # Convert any to Kilometers
 def ConvertToKilometersFromMeters(self, value):
@@ -28,17 +26,17 @@ def ConvertToKilometersFromMeters(self, value):
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToKilometersFromMiles(self, Value):
+def ConvertToKilometersFromMiles(self, value):
     try:
         return (value*1.609)
-    except expression as identifier:
+    except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToKilometersFromMillimeters(self, parameter_list):
+def ConvertToKilometersFromMillimeters(self, value):
     try:
         return (value*100000)
         
-    except expression as identifier:
+    except Exception as e:
         return ("Error converting: " + e)
 
 # Convert any to Miles
@@ -48,15 +46,14 @@ def ConvertToMilesFromMeters(self, value):
     except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMilessFromKilometers(self, Value):
+def ConvertToMilessFromKilometers(self, value):
     try:
         return (value/1.609)
-    except expression as identifier:
+    except Exception as e:
         return ("Error converting: " + e)
 
-def ConvertToMilesFromMillimeters(self, parameter_list):
+def ConvertToMilesFromMillimeters(self, value):
     try:
         return (value*1609000)
-        
-    except expression as identifier:
+    except Exception as e:
         return ("Error converting: " + e)

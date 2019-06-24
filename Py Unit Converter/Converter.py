@@ -1,5 +1,7 @@
-from Distance import *
-
+from Distance import Distance_Converter
+from Speed import Speed_Converter
+from Volume import Volume_Converter
+from Temperature import Temperature_Converter
 # Distance Units
 KILOMETER = "km"
 MILE = "mi"
@@ -8,7 +10,9 @@ MILIMETER = "mm"
 
 # Speed Units
 KILOMETER_PER_HOUR = "kph"
+KILOMETER_PER_SECOND = "kps"
 MILE_PER_HOUR = "miph"
+MILE_PER_SECOND = "mips"
 METER_PER_HOUR = "mph"
 METER_PER_SECOND = "mps"
 
@@ -41,63 +45,108 @@ DEGREES_MINUTES = "dmm"
 DECIMAL_DEGREES = "dd"
 
 
-def Convert_Speed(self, parameter_list):
-    try:
-        pass
-    except Exception as e:
-        pass
-
-def Convert_Coordinates(self, parameter_list):
-    try:
-        pass
-    except Exception as e:
-        pass
-
-def Convert_Volume(self, parameter_list):
-    try:
-        pass
-    except Exception as e:
-        pass
-
-def Convert_Pressure(self, parameter_list):
-    try:
-        pass
-    except Exception as e:
-        pass
-
-def Convert_Distance(self, value, unitIn, unitOut ):
+def Convert_Speed(self, value, unitIn, unitOut):
     try:
         if unitIn == unitOut:
             return value
-        if unitIn == METER and unitOut = KILOMETER:
+        elif unitIn == MILE_PER_HOUR and unitOut == KILOMETER_PER_HOUR:
+            return Speed_Converter.ConvertToKPHFromMIPH(value)
+        elif unitIn == METER_PER_HOUR and unitOut == KILOMETER_PER_HOUR :
+            return Speed_Converter.ConvertToKPHFromMPH(value)
+        elif unitIn == MILE_PER_SECOND and unitOut == KILOMETER_PER_HOUR :
+            return Speed_Converter.ConvertToKPHFromMIPS(value)
+        elif unitIn == METER_PER_SECOND and unitOut == KILOMETER_PER_HOUR :
+            return Speed_Converter.ConvertToKPHFromMPS(value)
+
+        elif unitIn == KILOMETER_PER_HOUR and unitOut == METER_PER_HOUR:
+            return Speed_Converter.ConvertToMPHFromKPH(value)
+        elif unitIn == MILE_PER_HOUR and unitOut == METER_PER_HOUR :
+            return Speed_Converter.ConvertToMPHFromMIPH(value)
+        elif unitIn == KILOMETER_PER_SECOND and unitOut == METER_PER_HOUR :
+            return Speed_Converter.ConvertToMPHFromKPS(value)
+        elif unitIn == MILE_PER_SECOND and unitOut == METER_PER_HOUR :
+            return Speed_Converter.ConvertToMPHFromMIPS(value)
+        
+        elif unitIn == KILOMETER_PER_HOUR and unitOut == MILE_PER_HOUR:
+            return Speed_Converter.ConvertToMIPHFromKPH(value)
+        elif unitIn == METER_PER_HOUR and unitOut == MILE_PER_HOUR:
+            return Speed_Converter.ConvertToMIPHFromMPH(value)
+        elif unitIn == KILOMETER_PER_SECOND and unitOut == MILE_PER_HOUR:
+            return Speed_Converter.ConvertToMIPHFromKPS(value)
+        elif unitIn == METER_PER_SECOND and unitOut == MILE_PER_HOUR:
+            return Speed_Converter.ConvertToMIPHFromMPS(value)
+    except Exception as e:
+        return "Error : " + e
+
+def Convert_Coordinates(self, value, unitIn, unitOut):
+    try:
+        pass
+    except Exception as e:
+        pass
+
+def Convert_Volume(self, value, unitIn, unitOut):
+    try:
+        if unitIn == unitOut:
+            return value
+        elif unitIn == LITER and unitOut == GALLON:
+            return Volume_Converter.ConvertToGallonFromLiter(value)
+        elif unitIn == GALLON and unitOut == LITER:
+            return Volume_Converter.ConvertToLiterFromGallon(value)
+    except Exception as e:
+        return "Error: " + e
+
+def Convert_Pressure(self, value, unitIn, unitOut):
+    try:
+        pass
+    except Exception as e:
+        pass
+
+def Convert_Distance(self, value, unitIn, unitOut):
+    try:
+        if unitIn == unitOut:
+            return value
+        elif unitIn == METER and unitOut == KILOMETER:
             return Distance_Converter.ConvertToKilometersFromMeters(value)
-        if unitIn == METER and unitOut = MILE:
+        elif unitIn == METER and unitOut == MILE:
             return Distance_Converter.ConvertToMilesFromMeters(value)
-        if unitIn == MILE and unitOut = METER:
+        elif unitIn == MILE and unitOut == METER:
             return Distance_Converter.ConvertToMetersFromMiles(value)
-        if unitIn == MILE and unitOut = KILOMETER:
+        elif unitIn == MILE and unitOut == KILOMETER:
             return Distance_Converter.ConvertToKilometersFromMiles(value)
-        if unitIn == KILOMETER and unitOut = MILE:
+        elif unitIn == KILOMETER and unitOut == MILE:
             return Distance_Converter.ConvertToMilessFromKilometers(value)
-        if unitIn == KILOMETER and unitOut = METER:
+        elif unitIn == KILOMETER and unitOut == METER:
             return Distance_Converter.ConvertToMetersFromKilometers(value)
-        if unitIn == MILIMETER and unitOut = MILE:
+        elif unitIn == MILIMETER and unitOut == MILE:
             return Distance_Converter.ConvertToMilesFromMillimeters(value)
-        if unitIn == MILIMETER and unitOut = KILOMETER:
+        elif unitIn == MILIMETER and unitOut == KILOMETER:
             return Distance_Converter.ConvertToKilometersFromMillimeters(value)
-        if unitIn == MILIMETER and unitOut = METER:
+        elif unitIn == MILIMETER and unitOut == METER:
             return Distance_Converter.ConvertToMetersFromMillimeters(value)
     except Exception as e:
         return "Error: " + e
 
-def Convert_Consumption(self, parameter_list):
+def Convert_Consumption(self, value, unitIn, unitOut):
     try:
         pass
     except Exception as e:
         pass
 
-def Convert_Temperature(self, parameter_list):
+def Convert_Temperature(self, value, unitIn, unitOut):
     try:
-        pass
+        if unitIn == unitOut:
+            return value
+        elif unitIn == FAHRENHEINT and unitOut == CELCIUS:
+            return Temperature_Converter.ConvertToCelsiusFromFahrenheint(value)
+        elif unitIn == KELVIN and unitOut == CELCIUS:
+            return Temperature_Converter.ConvertToCelsiusFromKelvin(value)
+        elif unitIn == CELCIUS and unitOut == FAHRENHEINT:
+            return Temperature_Converter.ConvertToFahrenheintFromCelsius(value)
+        elif unitIn == KELVIN and unitOut == FAHRENHEINT:
+            return Temperature_Converter.ConvertToFahrenheintFromKelvin(value)
+        elif unitIn == CELCIUS and unitOut == KELVIN:
+            return Temperature_Converter.ConvertToKelvinFromCelsius(value)
+        elif unitIn == FAHRENHEINT and unitOut == KELVIN:
+            return Temperature_Converter.ConvertToKelvinFromFahrenheint(value)
     except Exception as e:
-        pass
+        return "Error: " + e
